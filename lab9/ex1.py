@@ -1,29 +1,32 @@
-class miasto:
-    def __init__(self, nazwa, x, y):
-        self.nazwa = nazwa
+class City:
+    def __init__(self, name, x, y):
+        self.name = name
         self.x = x
         self.y = y
 
 
-tekst_file = open('./TSP.txt', "r")
+def main():
+    file = open('./TSP.txt', "r")
 
-miasta = []
+    cities = []
 
-for line in tekst_file:
-    podzial = line.split()
-    nazwa = int(podzial[0])
-    x = float(podzial[1])
-    y = float(podzial[2])
-    miasta.append(miasto(nazwa, x, y))
+    for line in file:
+        element = line.split()
+        name = int(element[0])
+        x = float(element[1])
+        y = float(element[2])
+        cities.append(City(name, x, y))
 
-odleglosc = 0
+    total_distance = 0
 
-for i in range(len(miasta) - 1):
-    miasto1 = miasta[i]
-    miasto2 = miasta[i + 1]
-    droga = ((miasto1.x - miasto2.x) ** 2 + (miasto1.y - miasto2.y) ** 2) ** (0.5)
-    odleglosc = odleglosc + droga
+    for i in range(len(cities) - 1):
+        first_city = cities[i]
+        second_city = cities[i + 1]
+        distance = ((first_city.x - second_city.x) ** 2 + (first_city.y - second_city.y) ** 2) ** (0.5)
+        total_distance = total_distance + distance
 
-print(odleglosc)
+    print(distance)
 
 
+if __name__ == '__main__':
+    main()
