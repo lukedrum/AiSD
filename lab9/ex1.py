@@ -22,10 +22,10 @@ def main():
     for i in range(len(cities) - 1):
         first_city = cities[i]
         second_city = cities[i + 1]
-        distance = ((first_city.x - second_city.x) ** 2 + (first_city.y - second_city.y) ** 2) ** (0.5)
+        distance = ((first_city.x - second_city.x) ** 2 + (first_city.y - second_city.y) ** 2) ** 0.5
         total_distance = total_distance + distance
 
-    print(distance)
+    print(total_distance)
 
 
 if __name__ == '__main__':
